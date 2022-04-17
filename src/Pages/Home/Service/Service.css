@@ -1,0 +1,13 @@
+.card-name{
+    color: rgb(44, 41, 41);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.box-border{
+    border: 3px solid rgb(241, 235, 235);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.box-border:hover{
+    border: 3px solid rgb(180, 97, 97);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}

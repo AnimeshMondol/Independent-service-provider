@@ -1,0 +1,13 @@
+.img-size{
+    height: 365px;
+    width: 365px;
+}
+.bg-color{
+    background-color: #d3dfe282;
+    border: 2px solid rgb(223, 214, 214);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.bg-color:hover {
+    border: 2px solid #000000;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
