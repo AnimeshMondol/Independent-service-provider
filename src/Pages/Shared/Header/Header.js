@@ -11,6 +11,7 @@ const Header = () => {
                     <CustomLink className='img-fluid mx-auto' to="/home">
                     <img
                         src={logo}
+                        height='100px'
                         alt='Peter Parker'
                     />
                     </CustomLink>
