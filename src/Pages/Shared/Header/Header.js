@@ -9,11 +9,11 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-dark navbar-bg-color">
                 <div className="container-fluid">
                     <CustomLink className='img-fluid mx-auto' to="/home">
-                    <img
-                        src={logo}
-                        height='100px'
-                        alt='Peter Parker'
-                    />
+                        <img
+                            src={logo}
+                            height='100px'
+                            alt='Peter Parker'
+                        />
                     </CustomLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -27,6 +27,9 @@ const Header = () => {
                                 <CustomLink to="/services">Services</CustomLink>
                             </li>
                             <li className="nav-item">
+                                <CustomLink to="/reviews">Review</CustomLink>
+                            </li>
+                            <li className="nav-item">
                                 <CustomLink to="/checkout">CheckOut</CustomLink>
                             </li>
                             <li className="nav-item">
@@ -36,10 +39,10 @@ const Header = () => {
                                 <CustomLink to="/aboutus">About Us</CustomLink>
                             </li>
                             <li className="nav-item">
-                                <CustomLink to="/login">Login</CustomLink>
+                                <CustomLink to="/signup">Sign Up</CustomLink>
                             </li>
                             <li className="nav-item">
-                                <CustomLink to="/signup">SignUp</CustomLink>
+                                <CustomLink to="/login">Login</CustomLink>
                             </li>
                         </ul>
                     </div>
