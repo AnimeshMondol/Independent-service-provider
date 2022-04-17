@@ -1,0 +1,11 @@
+.link-style{
+    text-decoration: none;
+    color: rgb(189, 32, 32);
+    font-size: 30px;
+}
+.link-style:hover{
+    color: white;
+}
+.navbar-bg-color{
+    background-color: rgb(0, 0, 0);
+}
