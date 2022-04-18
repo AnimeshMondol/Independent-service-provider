@@ -1,4 +1,3 @@
-import { Toast } from 'bootstrap';
 import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -6,6 +5,7 @@ import './Login.css';
 import Loading from '../../Shared/Loading/Loading';
 import auth from '../../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Toast, ToastHeader } from 'react-bootstrap';
 
 
 const Login = () => {
@@ -53,10 +53,14 @@ const Login = () => {
         const email = emailRef.current.value;
         if (email) {
             await sendPasswordResetEmail(email);
-            Toast('Sent email');
+            <Toast>
+                <ToastHeader>Email Sent</ToastHeader>
+            </Toast>
         }
         else {
-            Toast('please enter your email address');
+            <Toast>
+                <ToastHeader>Please Enter Your Email</ToastHeader>
+            </Toast>
         }
     }
 
@@ -69,11 +73,11 @@ const Login = () => {
                             <h2 className="fw-bold mb-5">Login Here !</h2>
                             <form onSubmit={handleSubmit}>
                                 <div className="form-outline mb-4">
-                                    <input ref={emailRef} type="email" id="form3Example3" className="form-control" />
+                                    <input ref={emailRef} type="email" id="form3Example3" className="form-control" required />
                                     <label className="form-label" for="form3Example3">Email address</label>
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <input ref={passwordRef} type="password" id="form3Example4" className="form-control" />
+                                    <input ref={passwordRef} type="password" id="form3Example4" className="form-control" required />
                                     <label className="form-label" for="form3Example4">Password</label>
                                 </div>
                                 <button type="submit" className="btn button-style btn-block mb-4">

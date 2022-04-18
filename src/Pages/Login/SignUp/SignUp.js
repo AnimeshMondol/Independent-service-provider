@@ -1,15 +1,59 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import auth from '../../../firebase.init';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Loading from '../../Shared/Loading/Loading';
+import { Toast, ToastHeader } from 'react-bootstrap';
+
 
 const SignUp = () => {
 
+    const [agree, setAgree] = useState(false);
+
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const nameRef = useRef('');
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating] = useUpdateProfile(auth);
+
     const navigate = useNavigate();
 
-
     const navigateToLogin = event => {
-        navigate('/signup');
+        navigate('/login');
     }
+
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        console.log('user', user);
+        navigate('/home');
+    }
+
+    const handleRegister = async (event) => {
+        event.preventDefault();
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        <Toast>
+            <ToastHeader>
+                Profile is updated.
+            </ToastHeader>
+        </Toast>
+        navigate('/home');
+    }
+
 
     return (
         <div className="container py-4">
@@ -18,24 +62,30 @@ const SignUp = () => {
                     <div className="card cascading-right card-bg">
                         <div className="card-body p-5 shadow-5 text-center">
                             <h2 className="fw-bold mb-5">Sign Up Here !</h2>
-                            <form>
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1" class="form-control" />
-                                    <label class="form-label" for="form3Example1">Enter Your Name</label>
+                            <form onSubmit={handleRegister}>
+                                <div className="form-outline mb-4">
+                                    <input ref={nameRef} type="text" id="form3Example1" className="form-control" required />
+                                    <label className="form-label" for="form3Example1">Enter Your Name</label>
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="form3Example2" className="form-control" />
+                                    <input ref={emailRef} type="email" id="form3Example2" className="form-control" required />
                                     <label className="form-label" for="form3Example2">Enter Email Address</label>
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="form3Example3" className="form-control" />
+                                    <input type="password" id="form3Example3" className="form-control" required />
                                     <label className="form-label" for="form3Example3">Enter Password</label>
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="form3Example4" className="form-control" />
+                                    <input ref={passwordRef} type="password" id="form3Example4" className="form-control" required />
                                     <label className="form-label" for="form3Example">Confirm Password</label>
                                 </div>
-                                <button type="submit" className="btn button-style btn-block mb-4">
+                                <div className="form-outline mb-4">
+                                    <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" required />
+                                    <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms">Accept all the Terms and Conditions</label>
+                                </div>
+                                <button type="submit" className="btn button-style btn-block mb-4"
+                                    disabled={!agree}
+                                    value="Register">
                                     Sign Up
                                 </button>
                             </form>
