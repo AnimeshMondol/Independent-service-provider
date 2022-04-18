@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# Project Name : Peter-Parker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Live Site Link [Click Here](https://peter-parker-2a782.web.app/home).
+
+## Features and Functionality
+
+***
+* Firebase Authentication.
+* Login with (Google, Github & Facebook).
+* Shows all servies.
+* Shows customer reviews.
+* Functional signup and login page.
+* Spinner
+
+## Used Technologies
+
+* React
+* React Route
+* React Boostrap
+* React Font Awoasum
+* Firebase Auth Hooks
+* Firebase
+* Firebase Auth with (Google, Github & Facebook)
 
 ## Available Scripts
 
