@@ -1,7 +1,16 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignUp = () => {
+
+    const navigate = useNavigate();
+
+
+    const navigateToLogin = event => {
+        navigate('/signup');
+    }
+
     return (
         <div className="container py-4">
             <div className="row g-0 align-items-center">
@@ -29,9 +38,9 @@ const SignUp = () => {
                                 <button type="submit" className="btn button-style btn-block mb-4">
                                     Sign Up
                                 </button>
-                                <p>Do not have a account? <span>Click Here</span></p>
-                                <SocialLogin></SocialLogin>
                             </form>
+                            <p>Already have an account? <span><Link to="/login" className="text-danger fw-bold pe-auto text-decoration-none" onClick={navigateToLogin}>Click Here</Link></span></p>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

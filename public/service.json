@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "name": "CALL OF NATURE",
+        "name": "CALL OF NATURE (COMBO PACK)",
         "price": "900",
         "duration": "12 work hour",
         "no_of_photo": "70",
@@ -51,16 +51,16 @@
         "duration": "12 work hour",
         "no_of_photo": "100",
         "description": "It is not just children who want their photos taken! From headshots to engagement shoots, portrait sessions are becoming more and more popular in a world where we are constantly looking for a curated Instagram feed or professional-looking LinkedIn profile photo.",
-        "img": "https://i.ibb.co/Fg0wHSp/6.jpg"
+        "img": "https://i.ibb.co/T8p5yC1/9.jpg"
     },
     {
         "id": 7,
-        "name": "PRO PACK 1",
+        "name": "PRO PACK 1 (COMBO PACK)",
         "price": "650",
         "duration": "12 work hour",
         "no_of_photo": "70",
         "description": "It contains both landscape and architectureal photography togather. It is a seaving pack. You can have 2 in one experience by booking this.",
-        "img": "https://i.ibb.co/CH7Xr3C/7.jpg"
+        "img": "https://i.ibb.co/Fg0wHSp/6.jpg"
     },
     {
         "id": 8,
@@ -69,7 +69,7 @@
         "duration": "6 work hour",
         "no_of_photo": "20",
         "description": "Nothing has had more of an impact on the digital photographer industry over the last few years than drones. This is especially true in the real estate photography industry, where homes with aerial images sell 68% faster than those without. However, this type of photography also plays a role in a wide range of industries, including the construction, events, travel, and advertising sectors.",
-        "img": "https://i.ibb.co/wBhQnFJ/8.jpg"
+        "img": "https://i.ibb.co/CH7Xr3C/7.jpg"
     },
     {
         "id": 9,
@@ -78,7 +78,7 @@
         "duration": "8 work hour",
         "no_of_photo": "50 + 10 video",
         "description": "It is not just children who want their photos taken! From headshots to engagement shoots, portrait sessions are becoming more and more popular in a world where we are constantly looking for a curated Instagram feed or professional-looking LinkedIn profile photo.",
-        "img": "https://i.ibb.co/T8p5yC1/9.jpg"
+        "img": "https://i.ibb.co/wBhQnFJ/8.jpg"
     },
     {
         "id": 10,

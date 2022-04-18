@@ -1,9 +1,65 @@
-import React from 'react';
+import { Toast } from 'bootstrap';
+import React, { useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import './Login.css'
+import './Login.css';
+import Loading from '../../Shared/Loading/Loading';
+import auth from '../../../firebase.init';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const location = useLocation();
+
+    const navigateToSignup = event => {
+        navigate('/signup');
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        signInWithEmailAndPassword(email, password);
+    }
+
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            Toast('Sent email');
+        }
+        else {
+            Toast('please enter your email address');
+        }
+    }
+
     return (
         <div className="container py-4">
             <div className="row g-0 align-items-center">
@@ -11,21 +67,23 @@ const Login = () => {
                     <div className="card cascading-right card-bg">
                         <div className="card-body p-5 shadow-5 text-center">
                             <h2 className="fw-bold mb-5">Login Here !</h2>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="form3Example3" className="form-control" />
+                                    <input ref={emailRef} type="email" id="form3Example3" className="form-control" />
                                     <label className="form-label" for="form3Example3">Email address</label>
                                 </div>
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="form3Example4" className="form-control" />
+                                    <input ref={passwordRef} type="password" id="form3Example4" className="form-control" />
                                     <label className="form-label" for="form3Example4">Password</label>
                                 </div>
                                 <button type="submit" className="btn button-style btn-block mb-4">
                                     Login
                                 </button>
-                                <p>Do not have a account? <span>Click Here</span></p>
-                                <SocialLogin></SocialLogin>
+                                {errorElement}
                             </form>
+                            <p>Do not have an account? <span><Link to="/signup" className="text-danger fw-bolder pe-auto text-decoration-none" onClick={navigateToSignup}>Click Here</Link></span></p>
+                            <p>Forget Password? <button className='btn btn-link text-primary text-decoration-none' onClick={resetPassword}><span>Reset Password</span></button> </p>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>
