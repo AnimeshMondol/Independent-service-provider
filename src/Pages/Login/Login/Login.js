@@ -1,5 +1,7 @@
 import React from 'react';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
+
 
 const Login = () => {
     return (
@@ -18,19 +20,11 @@ const Login = () => {
                                     <input type="password" id="form3Example4" className="form-control" />
                                     <label className="form-label" for="form3Example4">Password</label>
                                 </div>
-                                <button type="submit" className="btn btn-primary btn-block mb-4">
+                                <button type="submit" className="btn button-style btn-block mb-4">
                                     Login
                                 </button>
                                 <p>Do not have a account? <span>Click Here</span></p>
-                                <div className="text-center">
-                                    <p>OR Login with:</p>
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                        
-                                    </button>
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                       
-                                    </button>
-                                </div>
+                                <SocialLogin></SocialLogin>
                             </form>
                         </div>
                     </div>
