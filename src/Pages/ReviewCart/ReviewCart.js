@@ -10,7 +10,7 @@ const ReviewCart = ({ reviews }) => {
     return (
         <div className='col'>
             <div className='bg-color h-100 p-3 rounded-3 d-flex flex-column'>
-                <img className='card-img-top img-size rounded-circle z-depth-2' src={img} alt="100*100" />
+                <img className='card-img-top img-size1 rounded-circle z-depth-2' src={img} alt="100*100" />
                 <div className='card-body'>
                     <h4 className='text-center fw-bolder text-light'>{name}</h4>
                     <h6 className='text-center fw-bold my-4 fs-5'>Title: {title}</h6>
