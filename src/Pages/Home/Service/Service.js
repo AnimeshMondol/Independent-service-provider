@@ -24,7 +24,7 @@ const Service = ({ service }) => {
                     <hr />    
                 </div>
                 <div className='d-flex justify-content-center'>
-                    <Button onClick={() => navigateToDetail(id)} className="btn btn-success d-block">Book: {name}</Button>
+                    <Button onClick={() => navigateToDetail(id)} className="button-detail d-block">Book: {name}</Button>
                 </div>
             </div>
         </div>
