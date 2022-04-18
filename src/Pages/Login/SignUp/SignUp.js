@@ -56,8 +56,8 @@ const SignUp = () => {
 
 
     return (
-        <div className="container py-4">
-            <div className="row g-0 align-items-center">
+        <div className="container py-4 mt-5">
+            <div className="row g-0 align-items-center mt-5">
                 <div className="col-lg-6 mb-5 mb-lg-0">
                     <div className="card cascading-right card-bg">
                         <div className="card-body p-5 shadow-5 text-center">
@@ -95,7 +95,7 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-6 mb-5 mb-lg-0">
+                <div className="col-lg-6 mb-5 mb-lg-0 mt-5">
                     <img src="https://images.unsplash.com/photo-1623705593182-54c59434cc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjM1fHxjYW1lcmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100 rounded-4 shadow-4"
                         alt="" />
                 </div>

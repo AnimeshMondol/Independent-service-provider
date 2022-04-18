@@ -14,7 +14,7 @@ const Header = () => {
     }
     return (
         <div className=''>
-            <nav className="navbar navbar-expand-lg navbar-dark navbar-bg-color">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark navbar-bg-color ">
                 <div className="container-fluid">
                     <CustomLink className='img-fluid mx-auto' to="/home">
                         <img
@@ -49,7 +49,18 @@ const Header = () => {
                             <li className="nav-item">
                                 <CustomLink to="/signup">Sign Up</CustomLink>
                             </li>
+                        </ul>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            {
+                                user ?
+                                    <li className="nav-item nav-item text-light fw-bold ms-5">
+                                       Welcome Back<span className='text-decor'> {user.displayName}</span>
+                                    </li>
+                                    :
+                                    <li className="nav-item nav-item text-light fw-bold ms-5">
 
+                                    </li>
+                            }
                             {
                                 user ?
                                     <li className='nav-item text-light fw-bold ms-5' onClick={handleSignOut}>
@@ -60,6 +71,7 @@ const Header = () => {
                                         <CustomLink to="/login">Login</CustomLink>
                                     </li>
                             }
+
                         </ul>
                     </div>
                 </div>
