@@ -4,7 +4,8 @@ import './AboutUs.css'
 const AboutUs = () => {
     return (
         <div className="container py-4 mt-5">
-            <div className="row g-0 align-items-center mt-5">
+            <h2 className="display-1 fw-bolder mt-5 text-center">About Peter Parker</h2>
+            <div className="row g-0 align-items-center">
                 <div className="col-lg-6 mb-5 mb-lg-0">
                     <div className="card cascading-right card-bg">
                         <div className="card-body p-5 shadow-5 text-center">
